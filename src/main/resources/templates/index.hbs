@@ -3,14 +3,13 @@
     <h1>Team list</h1>
 
     {{#if teams}}
-    {{#each teams }}
-    <p>Current team:</p>
-    <p>{{ content }}</p>
-    {{/each}}
+        {{#each teams}}
+        <p>Current team:</p>
+        <p>{{ name }} <a href="/teams/{{id}}">read more</a></p>
+        {{/each}}
     {{else}}
-    <p>No Teams!</p>
+    <p>There are No current Teams to display!</p>
     {{/if}}
-
 {{/partial}}
 
 {{> layout.hbs}}

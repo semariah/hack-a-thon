@@ -6,6 +6,7 @@ import org.junit.Test;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import static org.junit.Assert.*;
@@ -102,6 +103,20 @@ public class TeamTest {
         Team team = setUpNewTeam();
         team.addTeamMember("semhar issac");
         assertEquals(1, team.getTeamMembers().size());
+    }
+
+    @Test
+    public void updateChangesInTeamContent() throws Exception {
+        Team team = setUpNewTeam();
+        String formerName = team.getName();
+        List<String> formerMember = team.getTeamMembers();
+        int formerId = team.getId();
+
+        team.update("react class", Collections.singletonList("janet"));
+
+        assertEquals(formerId, team.getId());
+        assertEquals(formerName, team.getName());
+        assertNotEquals(formerMember, team.getTeamMembers());
     }
 
 

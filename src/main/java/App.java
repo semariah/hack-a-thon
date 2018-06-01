@@ -18,8 +18,13 @@ public class App {
             Map<String, Object> model = new HashMap<String, Object>();
             String name = request.queryParams("name");
             String description = request.queryParams("description");
+            String member1 = request.queryParams("member1");
+            String member2 = request.queryParams("member2");
             Team newTeam = new Team(name, description);
+            newTeam.addTeamMember(member1);
+            newTeam.addTeamMember(member2);
             model.put("team", newTeam);
+
             return new ModelAndView(model, "success.hbs");
         }, new HandlebarsTemplateEngine());
 
@@ -30,6 +35,21 @@ public class App {
             model.put("teams", teams);
             return new ModelAndView(model, "index.hbs");
         }, new HandlebarsTemplateEngine());
+
+
+        get("/teams/new", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+            return new ModelAndView(model, "newteam-form.hbs");
+        }, new HandlebarsTemplateEngine());
+
+        get("/teams/:id", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+            int idOfTeamToFind = Integer.parseInt(req.params("id"));
+            Team foundTeam = Team.findById(idOfTeamToFind);
+            model.put("post", foundTeam);
+            return new ModelAndView(model, "team-detail.hbs");
+        }, new HandlebarsTemplateEngine());
+
 
     }
 }

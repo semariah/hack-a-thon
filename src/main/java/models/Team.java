@@ -83,4 +83,9 @@ public class Team {
     public void addTeamMember(String name) {
         teamMembers.add(name);
     }
+
+    public void update(String name, List<String> teamMembers) {
+        this.name = name;
+        this.teamMembers = teamMembers;
+    }
 }
