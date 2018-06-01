@@ -18,4 +18,8 @@ public class Team {
     public String getName() {
         return name;
     }
+
+    public String getDescription() {
+        return null;
+    }
 }

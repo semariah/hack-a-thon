@@ -31,6 +31,13 @@ public class TeamTest {
 
     }
 
+    @Test
+    public void TeamInstantiatesWithDescription_true() throws Exception {
+        Team team = new Team("Team: JS", "JS students of epicodus", "sem");
+        assertEquals("JS students of epicodus", team.getDescription());
+
+    }
+
 
 
 }
