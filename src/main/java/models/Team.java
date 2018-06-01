@@ -26,7 +26,7 @@ public class Team {
     }
 
     public static Team findById(int id) {
-        return teamInstances.get(id);
+        return teamInstances.get(id-1);
     }
 
 
