@@ -1,7 +1,6 @@
 package models;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 public class Team {
@@ -18,6 +17,7 @@ public class Team {
         teamInstances.add(this);
 
     }
+
 
     public String getName() {
         return name;
@@ -42,5 +42,18 @@ public class Team {
 
     public List<String> getTeamMembers() {
         return teamMembers;
+    }
+
+    public static void setTeamInstances(ArrayList<Team> teamInstances){
+        Team.teamInstances = teamInstances;
+    }
+
+
+    public static void clearAllTeams(){
+        teamInstances.clear();
+    }
+
+    public static ArrayList<Team> getTeamInstances() {
+        return null;
     }
 }
