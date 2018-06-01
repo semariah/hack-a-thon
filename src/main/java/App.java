@@ -14,6 +14,16 @@ public class App {
     public static void main(String[] args) {
         staticFileLocation("/public");
 
+        post("/teams/new", (request, response) -> {
+            Map<String, Object> model = new HashMap<String, Object>();
+            String name = request.queryParams("name");
+            String description = request.queryParams("description");
+            Team newTeam = new Team(name, description);
+            model.put("team", newTeam);
+            return new ModelAndView(model, "success.hbs");
+        }, new HandlebarsTemplateEngine());
+
+
         get("/", (request, response) -> {
             Map<String, Object> model = new HashMap<String, Object>();
             ArrayList<Team> teams = Team.getTeamInstances();
@@ -21,12 +31,5 @@ public class App {
             return new ModelAndView(model, "index.hbs");
         }, new HandlebarsTemplateEngine());
 
-        post("/teams/new", (request, response) -> {
-            Map<String, Object> model = new HashMap<String, Object>();
-            String name = request.queryParams("name");
-            String description = request.queryParams("description");
-            Team newTeam = new Team(name, description);
-            return new ModelAndView(model, "success.hbs");
-        }, new HandlebarsTemplateEngine());
     }
 }
