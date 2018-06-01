@@ -5,6 +5,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.Assert.*;
 
@@ -14,43 +15,52 @@ public class TeamTest {
     public void setUp() throws Exception {
     }
 
+    private Team setUpNewTeam() {
+        return new Team("Team: JS", "JS students of epicodus");
+    }
+
     @After
     public void tearDown() throws Exception {
     }
 
     @Test
     public void NewTeamObjectGetsCorrectlyCreated_true() throws Exception {
-        Team team = new Team("Team: JS", "JS students of epicodus", "sem");
+        Team team = setUpNewTeam();
         assertEquals(true, team instanceof Team);
     }
 
     @Test
     public void TeamInstantiatesWithName_true() throws Exception {
-        Team team = new Team("Team: JS", "JS students of epicodus", "sem");
+        Team team = setUpNewTeam();
+        team.setName("Team: JS");
         assertEquals("Team: JS", team.getName());
 
     }
 
     @Test
     public void TeamInstantiatesWithDescription_true() throws Exception {
-        Team team = new Team("Team: JS", "JS students of epicodus", "sem");
+        Team team = setUpNewTeam();
+        team.setDescription();
         assertEquals("JS students of epicodus", team.getDescription());
 
     }
 
     @Test
-    public void TeamReturnsCorrectlyMemberToAdd_true() throws Exception {
-        Team team = new Team("Team: JS", "JS students of epicodus", "sem");
-        assertEquals(1, team.getAll().size());
+    public void TeamReturnsCorrectlyMembers_2() throws Exception {
+        Team team = setUpNewTeam();
+        List<String> teamMembers = new ArrayList<String>();
+        teamMembers.add("The Women");
+        team.setTeamMembers(teamMembers);
+        assertEquals(1, team.getTeamMembers().size());
 
     }
 
-    @Test
-    public void TeamContainsCorrectlyMemberToAdd_true() throws Exception {
-        Team team = new Team("Team: JS", "JS students of epicodus", "sem");
-        assertEquals(true, team.getAll().contains("sem"));
-
-    }
+//    @Test
+//    public void TeamContainsCorrectlyMe_true() throws Exception {
+//        Team team = setUpNewTeam();
+//        assertEquals(true, team.getAll().contains(""));
+//
+//    }
 
 
 

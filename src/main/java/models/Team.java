@@ -1,27 +1,46 @@
 package models;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 public class Team {
     private String name;
     private String description;
-    private static ArrayList<String> members = new ArrayList<String>();
+    private List<String> teamMembers = new ArrayList<String>();
 
-    public Team(String name, String description, String memberToAdd){
+
+    private static ArrayList<Team> teamInstances = new ArrayList<>();
+
+    public Team(String name, String description){
         this.name = name;
         this.description = description;
-        this.members.add(memberToAdd);
+        teamInstances.add(this);
+
     }
 
     public String getName() {
         return name;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public String getDescription() {
         return description;
     }
 
-    public static ArrayList<String> getAll() {
-        return members;
+
+    public void setDescription() {
+        this.description = description;
+    }
+
+    public void setTeamMembers(List<String> teamMembers) {
+        this.teamMembers = teamMembers;
+    }
+
+    public List<String> getTeamMembers() {
+        return teamMembers;
     }
 }
