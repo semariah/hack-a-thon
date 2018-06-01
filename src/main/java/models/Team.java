@@ -54,6 +54,6 @@ public class Team {
     }
 
     public static ArrayList<Team> getTeamInstances() {
-        return null;
+        return teamInstances;
     }
 }
