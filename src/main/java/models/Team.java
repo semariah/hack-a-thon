@@ -79,4 +79,8 @@ public class Team {
     public int getId() {
         return id;
     }
+
+    public void addTeamMember(String name) {
+        teamMembers.add(null);
+    }
 }

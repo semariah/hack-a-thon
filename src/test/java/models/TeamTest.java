@@ -47,15 +47,15 @@ public class TeamTest {
 
     }
 
-    @Test
-    public void TeamReturnsCorrectlyMembers_2() throws Exception {
-        Team team = setUpNewTeam();
-        List<String> teamMembers = new ArrayList<String>();
-        teamMembers.add("The Women");
-        team.setTeamMembers(teamMembers);
-        assertEquals(1, team.getTeamMembers().size());
-
-    }
+//    @Test
+//    public void TeamReturnsCorrectlyMembers_2() throws Exception {
+//        Team team = setUpNewTeam();
+//        List<String> teamMembers = new ArrayList<String>();
+//        teamMembers.add("The Women");
+//        team.setTeamMembers(teamMembers);
+//        assertEquals(1, team.getTeamMembers().size());
+//
+//    }
 
     @Test
     public void AllTeamsAreReturnedCorrectly_true() throws Exception {
@@ -90,11 +90,20 @@ public class TeamTest {
     }
 
     @Test
-    public void findReturnsCorrectTeamWhenMoreThanOneTeamExists() throws Exception {
+    public void findReturnsCorrectTeamWhenMoreThanOneTeamExists_2() throws Exception {
         Team team = setUpNewTeam();
         Team otherTeam = new Team("Java", "web application by spark");
         assertEquals(2, Team.findById(otherTeam.getId()).getId());
     }
+
+
+    @Test
+    public void addTeamMembers_addTeamMembers_1() throws Exception {
+        Team team = setUpNewTeam();
+        team.addTeamMember("semhar issac");
+        assertEquals(1, team.getPublished());
+    }
+
 
 
 
