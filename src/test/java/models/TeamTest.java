@@ -48,7 +48,7 @@ public class TeamTest {
     @Test
     public void TeamContainsCorrectlyMemberToAdd_true() throws Exception {
         Team team = new Team("Team: JS", "JS students of epicodus", "sem");
-        assertEquals(true, team.getAll().contains("ariam"));
+        assertEquals(true, team.getAll().contains("sem"));
 
     }
 
