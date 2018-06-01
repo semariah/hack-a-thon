@@ -84,8 +84,8 @@ public class Team {
         teamMembers.add(name);
     }
 
-    public void update(String name, List<String> teamMembers) {
+    public void update(String name, String description) {
         this.name = name;
-        this.teamMembers = teamMembers;
+        this.description = description;
     }
 }

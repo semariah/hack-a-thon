@@ -109,14 +109,15 @@ public class TeamTest {
     public void updateChangesInTeamContent() throws Exception {
         Team team = setUpNewTeam();
         String formerName = team.getName();
-        List<String> formerMember = team.getTeamMembers();
+        String formerDescription = team.getDescription();
+        //List<String> formerMember = team.getTeamMembers();
         int formerId = team.getId();
 
-        team.update("react class", Collections.singletonList("janet"));
+        team.update("react class","Epicodus students");
 
         assertEquals(formerId, team.getId());
         assertNotEquals(formerName, team.getName());
-        assertNotEquals(formerMember, team.getTeamMembers());
+        assertNotEquals(formerDescription, team.getDescription());
     }
 
 
