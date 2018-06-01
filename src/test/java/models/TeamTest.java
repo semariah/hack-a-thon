@@ -101,7 +101,7 @@ public class TeamTest {
     public void addTeamMembers_addTeamMembers_1() throws Exception {
         Team team = setUpNewTeam();
         team.addTeamMember("semhar issac");
-        assertEquals(1, team.getPublished());
+        assertEquals(1, team.getTeamMembers().size());
     }
 
 

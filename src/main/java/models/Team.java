@@ -81,6 +81,6 @@ public class Team {
     }
 
     public void addTeamMember(String name) {
-        teamMembers.add(null);
+        teamMembers.add(name);
     }
 }
