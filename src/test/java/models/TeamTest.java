@@ -115,7 +115,7 @@ public class TeamTest {
         team.update("react class", Collections.singletonList("janet"));
 
         assertEquals(formerId, team.getId());
-        assertEquals(formerName, team.getName());
+        assertNotEquals(formerName, team.getName());
         assertNotEquals(formerMember, team.getTeamMembers());
     }
 
