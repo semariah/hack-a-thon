@@ -75,6 +75,6 @@ public class Team {
     }
 
     public int getId() {
-        return 0;
+        return id;
     }
 }
