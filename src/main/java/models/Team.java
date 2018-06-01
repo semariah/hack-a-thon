@@ -14,4 +14,8 @@ public class Team {
         this.description = description;
         this.members.add(memberToAdd);
     }
+
+    public String getName() {
+        return name;
+    }
 }

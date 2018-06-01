@@ -24,5 +24,13 @@ public class TeamTest {
         assertEquals(true, team instanceof Team);
     }
 
+    @Test
+    public void TeamInstantiatesWithName_true() throws Exception {
+        Team team = new Team("Team: JS", "JS students of epicodus", "sem");
+        assertEquals("Team: JS", team.getName());
+
+    }
+
+
 
 }
