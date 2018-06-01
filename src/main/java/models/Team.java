@@ -22,4 +22,8 @@ public class Team {
     public String getDescription() {
         return description;
     }
+
+    public static ArrayList<String> getAll() {
+        return null;
+    }
 }

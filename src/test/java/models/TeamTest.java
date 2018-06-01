@@ -38,6 +38,13 @@ public class TeamTest {
 
     }
 
+    @Test
+    public void TeamInstantiatesWithMemberToAdd_true() throws Exception {
+        Team team = new Team("Team: JS", "JS students of epicodus", "sem");
+        assertEquals("sem", team.getAll().size());
+
+    }
+
 
 
 }
