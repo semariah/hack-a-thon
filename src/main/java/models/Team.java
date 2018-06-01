@@ -9,6 +9,7 @@ public class Team {
     private String name;
     private String description;
     private LocalDateTime createdAt;
+    private int id;
     private List<String> teamMembers = new ArrayList<String>();
 
 
@@ -20,8 +21,11 @@ public class Team {
         this.published = false;
         this.createdAt = LocalDateTime.now();
         teamInstances.add(this);
+        this.id = teamInstances.size();
 
     }
+
+
 
 
     public String getName() {
@@ -68,5 +72,9 @@ public class Team {
 
     public LocalDateTime getCreatedAt() {
         return createdAt;
+    }
+
+    public int getId() {
+        return 0;
     }
 }
