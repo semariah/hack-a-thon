@@ -63,6 +63,12 @@ public class TeamTest {
 
     }
 
+    @Test
+    public void getPublished_isFalseAfterInstantiation_false() throws Exception {
+        Team team = setUpNewTeam();
+        assertEquals(false, team.getPublished());
+    }
+
 
 
 

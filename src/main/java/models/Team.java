@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Team {
+    private boolean published;
     private String name;
     private String description;
     private List<String> teamMembers = new ArrayList<String>();
@@ -14,6 +15,7 @@ public class Team {
     public Team(String name, String description){
         this.name = name;
         this.description = description;
+        this.published = false;
         teamInstances.add(this);
 
     }
@@ -55,5 +57,9 @@ public class Team {
 
     public static ArrayList<Team> getTeamInstances() {
         return teamInstances;
+    }
+
+    public boolean getPublished() {
+        return this.published;
     }
 }
