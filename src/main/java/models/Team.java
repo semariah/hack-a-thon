@@ -67,6 +67,6 @@ public class Team {
     }
 
     public LocalDateTime getCreatedAt() {
-        return null;
+        return createdAt;
     }
 }
