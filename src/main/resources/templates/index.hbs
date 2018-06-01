@@ -2,6 +2,15 @@
 
     <h1>Team list</h1>
 
+    {{#if teams}}
+    {{#each teams }}
+    <p>Current team:</p>
+    <p>{{ content }}</p>
+    {{/each}}
+    {{else}}
+    <p>No Teams!</p>
+    {{/if}}
+
     <p>Add a new Team:</p>
 
     <form action="/teams/new" method="POST">

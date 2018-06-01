@@ -57,11 +57,15 @@ public class TeamTest {
     }
 
     @Test
-    public void AllTeamsAreReturnedCorrectly_2() throws Exception {
+    public void AllTeamsAreReturnedCorrectly_true() throws Exception {
         Team team = setUpNewTeam();
         assertEquals(1, Team.getTeamInstances().size());
 
     }
+
+
+
+
 
 
 

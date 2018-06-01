@@ -1,4 +1,5 @@
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -15,16 +16,17 @@ public class App {
 
         get("/", (request, response) -> {
             Map<String, Object> model = new HashMap<String, Object>();
+            ArrayList<Team> teams = Team.getTeamInstances();
+            model.put("teams", teams);
             return new ModelAndView(model, "index.hbs");
         }, new HandlebarsTemplateEngine());
 
-//        post("/teams/new", (request, response) -> {
-//            Map<String, Object> model = new HashMap<String, Object>();
-//            String name = request.queryParams("name");
-//            String description = request.queryParams("description");
-//            String memberToAdd = request.queryParams("memberToAdd");
-//            Team newTeam = new Team();
-//            return new ModelAndView(model, "success.hbs");
-//        }, new HandlebarsTemplateEngine());
+        post("/teams/new", (request, response) -> {
+            Map<String, Object> model = new HashMap<String, Object>();
+            String name = request.queryParams("name");
+            String description = request.queryParams("description");
+            Team newTeam = new Team(name, description);
+            return new ModelAndView(model, "success.hbs");
+        }, new HandlebarsTemplateEngine());
     }
 }
