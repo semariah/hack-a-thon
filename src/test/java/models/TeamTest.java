@@ -39,9 +39,9 @@ public class TeamTest {
     }
 
     @Test
-    public void TeamInstantiatesWithMemberToAdd_true() throws Exception {
+    public void TeamReturnsCorrectlyMemberToAdd_true() throws Exception {
         Team team = new Team("Team: JS", "JS students of epicodus", "sem");
-        assertEquals("sem", team.getAll().size());
+        assertEquals(1, team.getAll().size());
 
     }
 

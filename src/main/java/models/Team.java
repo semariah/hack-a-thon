@@ -1,8 +1,6 @@
 package models;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.List;
 
 public class Team {
     private String name;
@@ -24,6 +22,6 @@ public class Team {
     }
 
     public static ArrayList<String> getAll() {
-        return null;
+        return members;
     }
 }
