@@ -4,6 +4,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -67,6 +68,12 @@ public class TeamTest {
     public void getPublished_isFalseAfterInstantiation_false() throws Exception {
         Team team = setUpNewTeam();
         assertEquals(false, team.getPublished());
+    }
+
+    @Test
+    public void getCreatedAt_instantiatesWithCurrentTime_today() throws Exception{
+        Team team = setUpNewTeam();
+        assertEquals(LocalDateTime.now().getDayOfWeek(), team.getCreatedAt().getDayOfWeek());
     }
 
 

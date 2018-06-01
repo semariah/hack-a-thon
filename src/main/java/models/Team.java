@@ -1,5 +1,6 @@
 package models;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,6 +8,7 @@ public class Team {
     private boolean published;
     private String name;
     private String description;
+    private LocalDateTime createdAt;
     private List<String> teamMembers = new ArrayList<String>();
 
 
@@ -16,6 +18,7 @@ public class Team {
         this.name = name;
         this.description = description;
         this.published = false;
+        this.createdAt = LocalDateTime.now();
         teamInstances.add(this);
 
     }
@@ -61,5 +64,9 @@ public class Team {
 
     public boolean getPublished() {
         return this.published;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return null;
     }
 }
