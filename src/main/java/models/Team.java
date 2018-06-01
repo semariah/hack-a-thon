@@ -7,11 +7,11 @@ import java.util.List;
 public class Team {
     private String name;
     private String description;
-    private static List<String> members = new ArrayList<String>();
+    private static ArrayList<String> members = new ArrayList<String>();
 
-    public Team(String name, String description, ArrayList<String> membersToAdd){
+    public Team(String name, String description, String memberToAdd){
         this.name = name;
         this.description = description;
-        this.members.addAll(membersToAdd);
+        this.members.add(memberToAdd);
     }
 }

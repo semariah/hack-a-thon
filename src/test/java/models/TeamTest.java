@@ -20,7 +20,7 @@ public class TeamTest {
 
     @Test
     public void NewTeamObjectGetsCorrectlyCreated_true() throws Exception {
-        Team team = new Team("Team: JS", "JS students of epicodus", ("bella", "sem");
+        Team team = new Team("Team: JS", "JS students of epicodus", "sem");
         assertEquals(true, team instanceof Team);
     }
 
