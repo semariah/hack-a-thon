@@ -89,6 +89,14 @@ public class TeamTest {
         assertEquals(1, Team.findById(team.getId()).getId());
     }
 
+    @Test
+    public void findReturnsCorrectTeamWhenMoreThanOneTeamExists() throws Exception {
+        Team team = setUpNewTeam();
+        Team otherTeam = new Team("Java", "web application by spark");
+        assertEquals(2, Team.findById(otherTeam.getId()).getId());
+    }
+
+
 
 
 
