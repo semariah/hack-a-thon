@@ -127,7 +127,7 @@ public class TeamTest {
         Team otherTeam = new Team("Java", "js stream");
         team.deleteTeam();
         assertEquals(1, Team.getTeamInstances().size());
-        assertEquals(Team.getTeamInstances().get(0).getId(), 1);
+        assertEquals(Team.getTeamInstances().get(0).getId(), 2);
     }
 
 
