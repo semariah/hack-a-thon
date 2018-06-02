@@ -70,6 +70,15 @@ public class App {
             return new ModelAndView(model, "success.hbs");
         }, new HandlebarsTemplateEngine());
 
+        get("/teams/:id/delete", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+            int idOfTeamToDelete = Integer.parseInt(req.params("id"));
+            Team deleteTeam = Team.findById(idOfTeamToDelete);
+            deleteTeam.deleteTeam();
+            return new ModelAndView(model, "success.hbs");
+        }, new HandlebarsTemplateEngine());
+
+
 
     }
 }
