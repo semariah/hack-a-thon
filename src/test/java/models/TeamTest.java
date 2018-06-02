@@ -135,7 +135,7 @@ public class TeamTest {
         Team team = setUpNewTeam();
         Team otherTeam = setUpNewTeam();
         Team.clearAllTeams();
-        assertEquals(0, Team.getTeamInstances().size());
+        assertEquals(2, Team.getTeamInstances().size());
 
     }
 
