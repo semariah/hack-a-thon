@@ -39,6 +39,11 @@ public class App {
         }, new HandlebarsTemplateEngine());
 
 
+        get("/teams/delete", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+            Team.clearAllTeams();
+            return new ModelAndView(model, "success.hbs");
+        }, new HandlebarsTemplateEngine());
 
         get("/teams/:id", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
@@ -77,6 +82,8 @@ public class App {
             deleteTeam.deleteTeam();
             return new ModelAndView(model, "success.hbs");
         }, new HandlebarsTemplateEngine());
+
+
 
 
 
