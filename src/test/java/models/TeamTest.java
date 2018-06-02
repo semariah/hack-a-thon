@@ -110,33 +110,25 @@ public class TeamTest {
         Team team = setUpNewTeam();
         String formerName = team.getName();
         String formerDescription = team.getDescription();
-        //List<String> formerMember = team.getTeamMembers();
+        LocalDateTime formerDate = team.getCreatedAt();
         int formerId = team.getId();
 
         team.update("react class","Epicodus students");
 
         assertEquals(formerId, team.getId());
+        assertEquals(formerDate, team.getCreatedAt());
         assertNotEquals(formerName, team.getName());
         assertNotEquals(formerDescription, team.getDescription());
     }
 
-
-
-
-
-
-
-
-
-//    @Test
-//    public void TeamContainsCorrectlyMe_true() throws Exception {
-//        Team team = setUpNewTeam();
-//        assertEquals(true, team.getAll().contains(""));
-//
-//    }
-
-
-
+    @Test
+    public void deleteDeletesASpecificTeam() throws Exception {
+        Team team = setUpNewTeam();
+        Team otherTeam = new Team("Java", "js stream");
+        team.deleteTeam();
+        assertEquals(1, Team.getTeamInstances().size());
+        assertEquals(Team.getTeamInstances().get(0).getId(), 1);
+    }
 
 
 }

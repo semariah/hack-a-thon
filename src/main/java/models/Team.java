@@ -5,15 +5,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Team {
-    private boolean published;
     private String name;
     private String description;
+    private List<String> teamMembers = new ArrayList<String>();
+    private static ArrayList<Team> teamInstances = new ArrayList<>();
+    private boolean published;
     private LocalDateTime createdAt;
     private int id;
-    private List<String> teamMembers = new ArrayList<String>();
 
 
-    private static ArrayList<Team> teamInstances = new ArrayList<>();
 
     public Team(String name, String description){
         this.name = name;
@@ -28,7 +28,6 @@ public class Team {
     public static Team findById(int id) {
         return teamInstances.get(id-1);
     }
-
 
     public String getName() {
         return name;
@@ -87,5 +86,9 @@ public class Team {
     public void update(String name, String description) {
         this.name = name;
         this.description = description;
+    }
+
+    public void deleteTeam() {
+        teamInstances.remove(id-1);
     }
 }
