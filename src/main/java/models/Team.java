@@ -9,7 +9,6 @@ public class Team {
     private String description;
     private List<String> teamMembers = new ArrayList<String>();
     private static ArrayList<Team> teamInstances = new ArrayList<>();
-    private boolean published;
     private LocalDateTime createdAt;
     private int id;
 
@@ -18,7 +17,6 @@ public class Team {
     public Team(String name, String description){
         this.name = name;
         this.description = description;
-        this.published = false;
         this.createdAt = LocalDateTime.now();
         teamInstances.add(this);
         this.id = teamInstances.size();
@@ -65,10 +63,6 @@ public class Team {
 
     public static ArrayList<Team> getTeamInstances() {
         return teamInstances;
-    }
-
-    public boolean getPublished() {
-        return this.published;
     }
 
     public LocalDateTime getCreatedAt() {

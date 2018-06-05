@@ -17,10 +17,6 @@ public class TeamTest {
     public void setUp() throws Exception {
     }
 
-    private Team setUpNewTeam() {
-        return new Team("Team: JS", "JS students of epicodus");
-    }
-
     @After
     public void tearDown() throws Exception {
         Team.clearAllTeams();
@@ -48,15 +44,6 @@ public class TeamTest {
 
     }
 
-//    @Test
-//    public void TeamReturnsCorrectlyMembers_2() throws Exception {
-//        Team team = setUpNewTeam();
-//        List<String> teamMembers = new ArrayList<String>();
-//        teamMembers.add("The Women");
-//        team.setTeamMembers(teamMembers);
-//        assertEquals(1, team.getTeamMembers().size());
-//
-//    }
 
     @Test
     public void AllTeamsAreReturnedCorrectly_true() throws Exception {
@@ -65,11 +52,6 @@ public class TeamTest {
 
     }
 
-    @Test
-    public void getPublished_isFalseAfterInstantiation_false() throws Exception {
-        Team team = setUpNewTeam();
-        assertEquals(false, team.getPublished());
-    }
 
     @Test
     public void getCreatedAt_instantiatesWithCurrentTime_today() throws Exception{
@@ -137,6 +119,10 @@ public class TeamTest {
         Team.clearAllTeams();
         assertEquals(0, Team.getTeamInstances().size());
 
+    }
+
+    private Team setUpNewTeam() {
+        return new Team("Team: JS", "JS students of epicodus");
     }
 
 
