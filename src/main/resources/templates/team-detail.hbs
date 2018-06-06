@@ -3,10 +3,12 @@
     <p>{{team.name}}</p>
     <p><strong>Team description:</strong></p>
     <p>{{team.description}}</p>
-    <p><strong>Team members:</strong></p>
-    <p>{{team.teamMembers}}</p>
     <h5><strong>Created At:</strong></h5>
     <p>{{team.createdAt}}</p>
+    <p><strong>Team members:</strong></p>
+        {{#each team.teamMembers}}
+            <p>{{this}}</p>
+        {{/each}}
 
     <p>
 
