@@ -49,9 +49,9 @@ public class Team {
     }
 
 
-    public static void clearAllTeams() {
-
-    }
+//    public static void clearAllTeams() {
+//
+//    }
 
     public LocalDateTime getCreatedAt() {
         return createdAt;

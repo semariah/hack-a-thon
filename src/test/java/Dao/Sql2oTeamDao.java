@@ -2,7 +2,9 @@ package Dao;
 
 import dao.TeamDao;
 import models.Team;
+import org.sql2o.Connection;
 import org.sql2o.Sql2o;
+import org.sql2o.Sql2oException;
 
 import java.util.List;
 
@@ -15,44 +17,35 @@ public class Sql2oTeamDao implements TeamDao {
     }
 
     @Override
-    public void add(Task task) {
-        String sql = "INSERT INTO tasks (description) VALUES (:description)"; //raw sql
-        try(Connection con = sql2o.open()){ //try to open a connection
-            int id = (int) con.createQuery(sql, true) //make a new variable
-                    .bind(task) //map my argument onto the query so we can use information from it
-                    .executeUpdate() //run it all
-                    .getKey(); //int id is now the row number (row “key”) of db
-            task.setId(id); //update object to set id now from database
-        } catch (Sql2oException ex) {
-            System.out.println(ex); //oops we have an error!
-        }
-    }
-
-    @Override
-    public List<Task> getAll() {
-        try(Connection con = sql2o.open()){
-            return con.createQuery("SELECT * FROM tasks") //raw sql
-                    .executeAndFetch(Task.class); //fetch a list
-        }
-    }
-
-    @Override
-    public Task findById(int id) {
-        try(Connection con = sql2o.open()){
-            return con.createQuery("SELECT * FROM tasks WHERE id = :id")
-                    .addParameter("id", id) //key/value pair, key must match above
-                    .executeAndFetchFirst(Task.class); //fetch an individual item
-        }
-    }
-}
-
-
     public void add(Team team) {
+        String sql = "INSERT INTO teams (name, description) VALUES (:name, :description)";
+        try (Connection con = sql2o.open()) {
+            int id = (int) con.createQuery(sql, true)
+                    .bind(team)
+                    .executeUpdate()
+                    .getKey();
+            team.setId(id);
+        } catch (Sql2oException ex) {
+            System.out.println(ex);
+        }
+
     }
 
-    public Team findById(int id) {
-    }
-
+    @Override
     public List<Team> getAll() {
+        try (Connection con = sql2o.open()) {
+            return con.createQuery("SELECT * FROM teams")
+                    .executeAndFetch(Team.class);
+        }
     }
+
+    @Override
+    public Team findById(int id) {
+        try (Connection con = sql2o.open()) {
+            return con.createQuery("SELECT * FROM teams WHERE id = :id")
+                    .addParameter("id", id)
+                    .executeAndFetchFirst(Team.class);
+        }
+    }
+
 }
