@@ -30,11 +30,19 @@ public class Sql2oTeamDaoTest {
     }
 
     @Test
-    public void existingTeamsCanBeFoundById() throws Exception {
+    public void addingTeamsSetsId() throws Exception {
         Team team = setupNewTeam();
         int originalTeamId = team.getId();
         teamDao.add(team);
         assertNotEquals(originalTeamId, team.getId());
+    }
+
+    @Test
+    public void existingTeamsCanBeFoundById() throws Exception {
+        Team team = setupNewTeam ("Team: JS");
+        teamDao.add(team);
+        Team foundTeam = teamDao.findById(team.getId());
+        assertEquals(team, foundTeam);
     }
 
     private Team setupNewTeam() {
