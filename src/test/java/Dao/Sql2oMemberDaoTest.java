@@ -94,7 +94,7 @@ public class Sql2oMemberDaoTest {
 
 
     private Member setupNewMember() {
-        return new Member("janet");
+        return new Member("janet", 1);
     }
 
 }
