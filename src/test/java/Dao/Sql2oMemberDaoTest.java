@@ -68,7 +68,7 @@ public class Sql2oMemberDaoTest {
         memberDao.add(member);
         memberDao.update(member.getId(), "ariam");
         Member updatedMember = memberDao.findById(member.getId());
-        assertEquals(initialName, updatedMember.getName());
+        assertNotEquals(initialName, updatedMember.getName());
     }
     
 
@@ -77,7 +77,7 @@ public class Sql2oMemberDaoTest {
         Member member = setupNewMember();
         memberDao.add(member);
         memberDao.deleteById(member.getId());
-        assertNotEquals(0, memberDao.getAll().size());
+        assertEquals(0, memberDao.getAll().size());
     }
 
 
