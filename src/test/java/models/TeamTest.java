@@ -61,7 +61,6 @@ public class TeamTest {
 
     @Test
     public void getId_teamsInstantiateWithAnID_1() throws Exception{
-//        Team.clearAllTeams();
         Team team = setUpNewTeam();
         assertEquals(1, team.getId());
     }
