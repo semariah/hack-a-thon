@@ -82,7 +82,7 @@ public class Sql2oTeamDaoTest {
         Team team = setupNewTeam();
         teamDao.add(team);
         teamDao.deleteById(team.getId());
-        assertNotEquals(0, teamDao.getAll().size());
+        assertEquals(0, teamDao.getAll().size());
     }
 
 
@@ -94,7 +94,7 @@ public class Sql2oTeamDaoTest {
         teamDao.add(otherTeam);
         int daoSize = teamDao.getAll().size();
         teamDao.clearAllTeams();
-        assertFalse(daoSize > 0 && daoSize > teamDao.getAll().size());
+        assertTrue(daoSize > 0 && daoSize > teamDao.getAll().size());
     }
 
 
