@@ -1,11 +1,16 @@
 package dao;
 
+import models.Member;
 import models.Team;
 
 import java.util.List;
 
 public interface TeamDao {
 
+    //Retrieve all members
+    List<Member> getAllMembersByTeamId(int teamId);
+
+    // Add
     List<Team> getAll();
 
     // CREATE
