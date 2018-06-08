@@ -53,12 +53,12 @@ public class Sql2oMemberDaoTest {
     public void addedMembersAreReturnedFromgetAll() throws Exception {
         Member member = setupNewMember();
         memberDao.add(member);
-        assertNotEquals(1, memberDao.getAll().size());
+        assertEquals(1, memberDao.getAll().size());
     }
 
     @Test
     public void noMembersReturnsEmptyList() throws Exception {
-        assertNotEquals(0, memberDao.getAll().size());
+        assertEquals(0, memberDao.getAll().size());
     }
 
     @Test
