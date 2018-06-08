@@ -59,12 +59,12 @@ public class Sql2oTeamDaoTest {
 
     @Test
     public void updateChangesTeamName() throws Exception {
-        String initialDescription = "Js students of epicodus";
+        String initialName = "javascript";
         Team team = setupNewTeam();
         teamDao.add(team);
         teamDao.update(team.getId(), "javascript", "javascript students");
         Team updatedTeam = teamDao.findById(team.getId());
-        assertNotEquals(initialDescription, updatedTeam.getName());
+        assertNotEquals(initialName, updatedTeam.getName());
     }
 
     @Test
