@@ -6,7 +6,6 @@ import org.sql2o.Connection;
 import org.sql2o.Sql2o;
 import org.sql2o.Sql2oException;
 
-import java.awt.*;
 import java.util.List;
 
 public class Sql2oTeamDao implements TeamDao {
@@ -30,6 +29,15 @@ public class Sql2oTeamDao implements TeamDao {
             System.out.println(ex);
         }
 
+    }
+
+    @Override
+    public List<Member> getAllMembersByTeamId(int teamId) {
+        try(Connection con = sql2o.open()){
+            return con.createQuery("SELECT * FROM members WHERE teamId = :teamId")
+                    .addParameter("teamId", teamId)
+                    .executeAndFetch(Member.class);
+        }
     }
 
     @Override
@@ -86,12 +94,5 @@ public class Sql2oTeamDao implements TeamDao {
         }
     }
 
-    public List<Member> getAllMembersByTeam(int teamId) {
-        try(Connection con = sql2o.open()){
-            return con.createQuery("SELECT * FROM members WHERE teamId = :teamId")
-                    .addParameter("teamId", teamId)
-                    .executeAndFetch(Member.class);
-        }
-    }
 }
 

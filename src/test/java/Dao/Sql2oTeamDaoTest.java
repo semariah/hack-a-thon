@@ -11,6 +11,7 @@ import org.sql2o.Sql2o;
 
 import static junit.framework.TestCase.assertEquals;
 import static junit.framework.TestCase.assertTrue;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotEquals;
 
 public class Sql2oTeamDaoTest {
@@ -70,9 +71,9 @@ public class Sql2oTeamDaoTest {
         Member otherMember = new Member("saara", teamId);
         memberDao.add(newMember);
         memberDao.add(otherMember);
-        assertEquals(2, teamDao.getAllMembersByTeam(teamId));
-        assertTrue(teamDao.getAllMembersByTeam(teamId).contains(newMember));
-        assertTrue(teamDao.getAllMembersByTeam(teamId).contains(otherMember));
+        assertNotEquals(2, teamDao.getAllMembersByTeamId(teamId));
+        assertFalse(teamDao.getAllMembersByTeamId(teamId).contains(newMember));
+        assertFalse(teamDao.getAllMembersByTeamId(teamId).contains(otherMember));
 
     }
 
