@@ -4,13 +4,28 @@
     <title>{{#block "title"}}Blog{{/block}}</title>
 
     <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
-    <link rel='stylesheet' href='/app.css'>
 </head>
 <body>
 <ul class="nav nav-tabs">
     <li role="presentation" class="active"><a href="#">Home</a></li>
     <li role="presentation"><a href="/teams/new">Add a New Team</a></li>
+<li role="presentation" class="dropdown">
+    <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+        Teams Menu <span class="caret"></span>
+    </a>
+    <ul class="dropdown-menu">
+        {{#if teams}}
+            {{#each teams}}
+                <li><a href="/teams/{{id}}">{{name}}</a></li>
+                <li><a href="/teams/{{id}}">{{description}}</a></li>
+            {{/each}}
+        {{else}}
+            <li><a href="/teams/new">Add a Team</a></li>
+        {{/if}}
+    </ul>
+</li>
 </ul>
+
 <div class="container">
     <div class="page-header">
         <img src="/images/code.jpg" width="100%">
@@ -20,16 +35,21 @@
     <div class="col-md-12">
         {{#block "content"}}
         {{/block}}
-
     </div>
 </div>
 {{#block "footer"}}
 <footer class="footer">
     <div class="container">
         <hr>
-        <p class="text-muted"><a href="/teams/delete"><button class = "btn btn-success">Delete All Teams</button></a></p>
+        <p class="text-muted">
+            <a href="/teams/delete"><button class = "btn btn-success">Delete All Teams</button></a>
+            <a href="/members/delete">Delete All Members</a>
+        </p>
     </div>
 </footer>
 </body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
 </html>
 {{/block}}
