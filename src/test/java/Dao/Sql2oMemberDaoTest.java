@@ -66,7 +66,7 @@ public class Sql2oMemberDaoTest {
         Member member = setupNewMember();
         int originalTeamId = member.getTeamId();
         memberDao.add(member);
-        assertNotEquals(originalTeamId, memberDao.findById(member.getId()).getTeamId());
+        assertEquals(originalTeamId, memberDao.findById(member.getId()).getTeamId());
     }
 
     @Test
