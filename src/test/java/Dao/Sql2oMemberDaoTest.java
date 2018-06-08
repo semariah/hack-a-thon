@@ -10,7 +10,7 @@ import org.sql2o.Connection;
 import org.sql2o.Sql2o;
 
 import static junit.framework.TestCase.assertEquals;
-import static org.junit.Assert.assertFalse;
+import static junit.framework.TestCase.assertTrue;
 import static org.junit.Assert.assertNotEquals;
 
 public class Sql2oMemberDaoTest {
@@ -89,7 +89,7 @@ public class Sql2oMemberDaoTest {
         memberDao.add(otherMember);
         int daoSize = memberDao.getAll().size();
         memberDao.clearAllMembers();
-        assertFalse(daoSize > 0 && daoSize > memberDao.getAll().size());
+        assertTrue(daoSize > 0 && daoSize > memberDao.getAll().size());
     }
 
 
