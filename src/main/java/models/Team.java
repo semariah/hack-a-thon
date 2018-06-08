@@ -49,6 +49,10 @@ public class Team {
     }
 
 
+    public static void clearAllTeams() {
+
+    }
+
     public LocalDateTime getCreatedAt() {
         return createdAt;
 
@@ -71,6 +75,7 @@ public class Team {
         return Objects.hash(name, description, id);
     }
 
+
     //    }
     //        return teamInstances.get(id-1);
     //    public static Team findById(int id) {
@@ -80,8 +85,7 @@ public class Team {
     //
     //    }
     //        this.teamMembers = teamMembers;
-//    public void setTeamMembers(List<String> teamMembers) {
-
+    //    public void setTeamMembers(List<String> teamMembers) {
 //    }
     //        return teamInstances;
     //    public static ArrayList<Team> getTeamInstances() {
