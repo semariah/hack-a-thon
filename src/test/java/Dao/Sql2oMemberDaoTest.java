@@ -62,6 +62,14 @@ public class Sql2oMemberDaoTest {
     }
 
     @Test
+    public void teamIdIsReturnedCorrectly() throws Exception {
+        Member member = setupNewMember();
+        int originalTeamId = member.getTeamId();
+        memberDao.add(member);
+        assertNotEquals(originalTeamId, memberDao.findById(member.getId()).getTeamId());
+    }
+
+    @Test
     public void updateChangesMemberName() throws Exception {
         String initialName = "janet";
         Member member = setupNewMember();
