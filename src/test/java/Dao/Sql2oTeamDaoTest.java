@@ -63,7 +63,7 @@ public class Sql2oTeamDaoTest {
         teamDao.add(team);
         teamDao.update(team.getId(), "javascript", "javascript students");
         Team updatedTeam = teamDao.findById(team.getId());
-        assertEquals(initialDescription, updatedTeam.getName());
+        assertNotEquals(initialDescription, updatedTeam.getName());
     }
 
     @Test
@@ -73,7 +73,7 @@ public class Sql2oTeamDaoTest {
         teamDao.add(team);
         teamDao.update(team.getId(), "javascript", "javascript students");
         Team updatedTeam = teamDao.findById(team.getId());
-        assertEquals(initialDescription, updatedTeam.getDescription());
+        assertNotEquals(initialDescription, updatedTeam.getDescription());
     }
 
     @Test
