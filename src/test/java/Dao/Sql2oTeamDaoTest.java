@@ -8,6 +8,7 @@ import org.sql2o.Sql2o;
 
 import static junit.framework.TestCase.assertEquals;
 import static junit.framework.TestCase.assertTrue;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotEquals;
 
 public class Sql2oTeamDaoTest {
@@ -81,7 +82,7 @@ public class Sql2oTeamDaoTest {
         Team team = setupNewTeam();
         teamDao.add(team);
         teamDao.deleteById(team.getId());
-        assertEquals(0, teamDao.getAll().size());
+        assertNotEquals(0, teamDao.getAll().size());
     }
 
 
@@ -93,7 +94,7 @@ public class Sql2oTeamDaoTest {
         teamDao.add(otherTeam);
         int daoSize = teamDao.getAll().size();
         teamDao.clearAllTeams();
-        assertTrue(daoSize > 0 && daoSize > teamDao.getAll().size());
+        assertFalse(daoSize > 0 && daoSize > teamDao.getAll().size());
     }
 
 
