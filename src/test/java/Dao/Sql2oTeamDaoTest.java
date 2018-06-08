@@ -7,6 +7,7 @@ import org.junit.Test;
 import org.sql2o.Sql2o;
 
 import static junit.framework.TestCase.assertEquals;
+import static junit.framework.TestCase.assertTrue;
 import static org.junit.Assert.assertNotEquals;
 
 public class Sql2oTeamDaoTest {
@@ -32,7 +33,7 @@ public class Sql2oTeamDaoTest {
         Team team = setupNewTeam();
         int originalTeamId = team.getId();
         teamDao.add(team);
-        assertNotEquals(originalTeamId, team.getId());
+        assertEquals(originalTeamId, team.getId());
     }
 
     @Test
@@ -53,6 +54,46 @@ public class Sql2oTeamDaoTest {
     @Test
     public void noTeamsReturnsEmptyList() throws Exception {
         assertEquals(0, teamDao.getAll().size());
+    }
+
+    @Test
+    public void updateChangesTeamName() throws Exception {
+        String initialDescription = "Js students of epicodus";
+        Team team = setupNewTeam();
+        teamDao.add(team);
+        teamDao.update(team.getId(), "javascript", "javascript students");
+        Team updatedTeam = teamDao.findById(team.getId());
+        assertNotEquals(initialDescription, updatedTeam.getName());
+    }
+
+    @Test
+    public void updateChangesTeamDescription() throws Exception {
+        String initialDescription = "Js students of epicodus";
+        Team team = setupNewTeam();
+        teamDao.add(team);
+        teamDao.update(team.getId(), "javascript", "javascript students");
+        Team updatedTeam = teamDao.findById(team.getId());
+        assertNotEquals(initialDescription, updatedTeam.getDescription());
+    }
+
+    @Test
+    public void deleteByIdDeletesCorrectTeam() throws Exception {
+        Team team = setupNewTeam();
+        teamDao.add(team);
+        teamDao.deleteById(team.getId());
+        assertEquals(0, teamDao.getAll().size());
+    }
+
+
+    @Test
+    public void clearAllClearsAll() throws Exception {
+        Team team = setupNewTeam();
+        Team otherTeam = setupNewTeam();
+        teamDao.add(team);
+        teamDao.add(otherTeam);
+        int daoSize = teamDao.getAll().size();
+        teamDao.clearAllTeams();
+        assertTrue(daoSize > 0 && daoSize > teamDao.getAll().size());
     }
 
 
