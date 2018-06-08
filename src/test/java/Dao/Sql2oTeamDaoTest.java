@@ -82,7 +82,7 @@ public class Sql2oTeamDaoTest {
         String initialName = "javascript";
         Team team = setupNewTeam();
         teamDao.add(team);
-        teamDao.update(team.getId(), "javascript", "javascript students");
+        teamDao.update(team.getId(), "java", "javascript students");
         Team updatedTeam = teamDao.findById(team.getId());
         assertNotEquals(initialName, updatedTeam.getName());
     }
