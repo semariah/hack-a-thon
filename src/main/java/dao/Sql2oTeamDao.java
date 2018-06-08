@@ -1,6 +1,5 @@
-package Dao;
+package dao;
 
-import dao.TeamDao;
 import models.Team;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;

@@ -1,5 +1,6 @@
 package Dao;
 
+import dao.Sql2oTeamDao;
 import models.Team;
 import org.junit.After;
 import org.junit.Before;
@@ -8,7 +9,6 @@ import org.sql2o.Sql2o;
 
 import static junit.framework.TestCase.assertEquals;
 import static junit.framework.TestCase.assertTrue;
-import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotEquals;
 
 public class Sql2oTeamDaoTest {
