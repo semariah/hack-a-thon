@@ -48,12 +48,12 @@ public class Sql2oTeamDaoTest {
     public void addedTeamsAreReturnedFromgetAll() throws Exception {
         Team team = setupNewTeam();
         teamDao.add(team);
-        assertNotEquals(1, teamDao.getAll().size());
+        assertEquals(1, teamDao.getAll().size());
     }
 
     @Test
     public void noTeamsReturnsEmptyList() throws Exception {
-        assertNotEquals(0, teamDao.getAll().size());
+        assertEquals(0, teamDao.getAll().size());
     }
 
     @Test
