@@ -3,12 +3,13 @@ package models;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Team {
     private String name;
     private String description;
-    private List<String> teamMembers = new ArrayList<String>();
-    private static ArrayList<Team> teamInstances = new ArrayList<>();
+    //private List<String> teamMembers = new ArrayList<String>();
+    //private static ArrayList<Team> teamInstances = new ArrayList<>();
     private LocalDateTime createdAt;
     private int id;
 
@@ -18,14 +19,9 @@ public class Team {
         this.name = name;
         this.description = description;
         this.createdAt = LocalDateTime.now();
-        teamInstances.add(this);
-        this.id = teamInstances.size();
-
+        //teamInstances.add(this);
     }
 
-    public static Team findById(int id) {
-        return teamInstances.get(id-1);
-    }
 
     public String getName() {
         return name;
@@ -44,45 +40,73 @@ public class Team {
         this.description = description;
     }
 
-    public void setTeamMembers(List<String> teamMembers) {
-        this.teamMembers = teamMembers;
-    }
-
-    public List<String> getTeamMembers() {
-        return teamMembers;
-    }
-
-    public static void setTeamInstances(ArrayList<Team> teamInstances){
-        Team.teamInstances = teamInstances;
-    }
-
-
-    public static void clearAllTeams(){
-        teamInstances.clear();
-    }
-
-    public static ArrayList<Team> getTeamInstances() {
-        return teamInstances;
-    }
-
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
-    }
-
     public int getId() {
         return id;
     }
 
-    public void addTeamMember(String name) {
-        teamMembers.add(name);
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public void update(String name, String description) {
-        this.name = name;
-        this.description = description;
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+
     }
 
-    public void deleteTeam() {
-        teamInstances.remove(id-1);
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Team team = (Team) o;
+        return id == team.id &&
+                Objects.equals(name, team.name) &&
+                Objects.equals(description, team.description);
     }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(name, description, id);
+    }
+
+    //    }
+    //        return teamInstances.get(id-1);
+    //    public static Team findById(int id) {
+    //    public List<String> getTeamMembers() {
+    //
+    // return teamMembers;
+    //
+    //    }
+    //        this.teamMembers = teamMembers;
+//    public void setTeamMembers(List<String> teamMembers) {
+
+//    }
+    //        return teamInstances;
+    //    public static ArrayList<Team> getTeamInstances() {
+    //
+    //    }
+    //        teamInstances.clear();
+    //    public static void clearAllTeams(){
+    //
+    //
+    //    }
+    //        Team.teamInstances = teamInstances;
+//    public static void setTeamInstances(ArrayList<Team> teamInstances){
+
+//    }
+
+//    public void addTeamMember(String name) {
+//        teamMembers.add(name);
+//    }
+//
+//    public void update(String name, String description) {
+//        this.name = name;
+//        this.description = description;
+//    }
+//
+//    public void deleteTeam() {
+//        teamInstances.remove(id-1);
+//    }
 }
