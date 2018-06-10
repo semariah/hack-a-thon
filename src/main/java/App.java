@@ -107,14 +107,23 @@ public class App {
         }, new HandlebarsTemplateEngine());
 
 
-        post("/teams/:id/members/:id/update", (req, res) -> {
+        post("/teams/:teamId/members/:id/update", (req, res) -> {
             int teamId = Integer.parseInt(req.params("id"));
             int memberId = Integer.parseInt(req.params("id"));
             String newMember1 = req.queryParams("member1");
             String newMember2 = req.queryParams("member2");
             memberDao.update(memberId, newMember1, teamId);
             memberDao.update(memberId, newMember2, teamId);
-            res.redirect("/teams/" + teamId);
+            res.redirect("/teams/" + teamId + "/members" + memberId);
+            return null;
+        }, new HandlebarsTemplateEngine());
+
+
+        get("/teams/:teamId/members/:id/delete", (request, response) -> {
+            int teamId = Integer.parseInt(request.params("id"));
+            int memberId = Integer.parseInt(request.params("id"));
+            memberDao.deleteById(memberId);
+            response.redirect("/teams/" + teamId);
             return null;
         }, new HandlebarsTemplateEngine());
 
@@ -132,12 +141,8 @@ public class App {
             Map<String, Object> model = new HashMap<>();
             String newName = req.queryParams("name");
             String newDescription = req.queryParams("description");
-            //String member1 = req.queryParams("member1");
-            //String member2 = req.queryParams("member2");
             int idOfTeamToEdit = Integer.parseInt(req.params("id"));
             teamDao.update(idOfTeamToEdit, newName, newDescription);
-            //editTeam.addTeamMember(member1);
-            //editTeam.addTeamMember(member2);
             res.redirect("/");
             return null;
         }, new HandlebarsTemplateEngine());

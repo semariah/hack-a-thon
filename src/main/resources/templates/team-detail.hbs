@@ -3,9 +3,6 @@
     <p>{{team.name}}</p>
     <p><strong>Team description:</strong></p>
     <p>{{team.description}}</p>
-    <h5><strong>Created At:</strong></h5>
-    <p>{{team.createdAt}}</p>
-    <p><strong>Team members:</strong></p>
         {{#each members}}
             <ul>
                 <li>
@@ -20,7 +17,7 @@
     <br>
     <form action="/teams/{{team.id}}/members/add" method="post">
         <div>
-            <label for="members">Add more Team members</label>
+            <label for="members">Add Team members</label>
             <input id="member1" name="member1" type="text">
             <input id="member2" name="member2" type="text">
         </div>
