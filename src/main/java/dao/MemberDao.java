@@ -5,6 +5,7 @@ import models.Member;
 import java.util.List;
 
 public interface MemberDao {
+
     List<Member> getAll();
 
     // CREATE

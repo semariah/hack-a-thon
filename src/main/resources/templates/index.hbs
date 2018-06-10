@@ -6,8 +6,11 @@
 
     {{#if teams}}
     {{#each teams}}
-        <p><strong>Current team:</strong></p>
-    <p>{{ description }} <a href="/teams/{{id}}">read more</a></p>
+        <h3>Current team:</h3>
+        <p><strong>Team name:</strong> {{name}}</p>
+        <p><strong>Team Description:</strong> {{description}}</p>
+        <p><strong>Team Members:</strong> {{members}}</p>
+        <p><a href="/teams/{{id}}">Read more</a></p>
     {{/each}}
     {{else}}
     <p>There are No current Teams to display!</p>

@@ -1,15 +1,11 @@
 package models;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 
 public class Team {
     private String name;
     private String description;
-    //private List<String> teamMembers = new ArrayList<String>();
-    //private static ArrayList<Team> teamInstances = new ArrayList<>();
     private LocalDateTime createdAt;
     private int id;
 
@@ -19,7 +15,6 @@ public class Team {
         this.name = name;
         this.description = description;
         this.createdAt = LocalDateTime.now();
-        //teamInstances.add(this);
     }
 
 
@@ -76,41 +71,5 @@ public class Team {
     }
 
 
-    //    }
-    //        return teamInstances.get(id-1);
-    //    public static Team findById(int id) {
-    //    public List<String> getTeamMembers() {
-    //
-    // return teamMembers;
-    //
-    //    }
-    //        this.teamMembers = teamMembers;
-    //    public void setTeamMembers(List<String> teamMembers) {
-//    }
-    //        return teamInstances;
-    //    public static ArrayList<Team> getTeamInstances() {
-    //
-    //    }
-    //        teamInstances.clear();
-    //    public static void clearAllTeams(){
-    //
-    //
-    //    }
-    //        Team.teamInstances = teamInstances;
-//    public static void setTeamInstances(ArrayList<Team> teamInstances){
 
-//    }
-
-//    public void addTeamMember(String name) {
-//        teamMembers.add(name);
-//    }
-//
-//    public void update(String name, String description) {
-//        this.name = name;
-//        this.description = description;
-//    }
-//
-//    public void deleteTeam() {
-//        teamInstances.remove(id-1);
-//    }
 }

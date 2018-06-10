@@ -1,10 +1,14 @@
 {{#partial "content"}}
+    {{#if member}}
     <h1>Edit member</h1>
-    <form action="/members/{{member.id}}" method="post">
+    <form action="/teams/{{team.id}}/members/{{member.id}}/update" method="post">
         <label for="name">Edit member name</label>
         <input id="name" name="name" type="text" value="{{member.name}}">
-        <button type="submit" class="btn btn-success">Edit member</button>
+        <button type="submit" class="btn btn-danger">Go Edit Member</button>
     </form>
+    {{else}}
+
+        {{/if}}
 {{/partial}}
 
 {{> layout.hbs}}

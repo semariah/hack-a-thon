@@ -11,21 +11,20 @@
     </div>
     <div>
         <h4>Current Members:</h4>
-        {{#each editTeam.teamMembers}}
-            <p>{{this}}</p>
+        {{#each members}}
+            <p>{{name}}</p>
         {{/each}}
     </div>
-    <div>
-        <label for="members">Add more Team members</label>
-        <input id="member1" name="member1" type="text">
-        <input id="member2" name="member2" type="text">
-    </div>
+    <!--<div>-->
+        <!--<label for="members">Add more Team members</label>-->
+        <!--<input id="member1" name="member1" type="text">-->
+        <!--<input id="member2" name="member2" type="text">-->
+    <!--</div>-->
     <button type="submit" class="btn btn-info">Update Team</button>
 </form>
 {{else}}
 
 <h1>Add a new Team!</h1>
-
 
 <form action="/teams/new" method="post">
     <label for="name">Team Name</label>
@@ -37,7 +36,7 @@
     <label for="member2">Member2</label>
     <input id="member2" name="member2" type="text">
 
-    <button type="submit" class="btn btn-default">Add Team</button>
+    <button type="submit" class="btn btn-success">Add Team</button>
 {{/if}}
 </form>
 {{/partial}}

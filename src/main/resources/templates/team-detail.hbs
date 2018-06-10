@@ -6,9 +6,28 @@
     <h5><strong>Created At:</strong></h5>
     <p>{{team.createdAt}}</p>
     <p><strong>Team members:</strong></p>
-        {{#each team.teamMembers}}
-            <p>{{this}}</p>
+        {{#each members}}
+            <ul>
+                <li>
+                    <p>{{name}}<a href="/teams/{{team.id}}/members/{{id}}"></a></p>
+                </li>
+            </ul>
+            <p>
+                <a href="/teams/{{teamId}}/members/{{id}}/update"><button class="btn btn-primary">Update Member</button></a>
+                <a href="/teams/{{teamId}}/members/{{id}}/delete"><button class="btn btn-danger">Delete Member</button></a>
+            </p>
         {{/each}}
+    <br>
+    <form action="/teams/{{team.id}}/members/add" method="post">
+        <div>
+            <label for="members">Add more Team members</label>
+            <input id="member1" name="member1" type="text">
+            <input id="member2" name="member2" type="text">
+        </div>
+        <br>
+        <button type="submit" class="btn btn-danger">Add Member</button>
+    </form>
+    <br>
 
     <p>
 
