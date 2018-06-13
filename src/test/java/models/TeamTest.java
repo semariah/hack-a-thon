@@ -5,11 +5,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 public class TeamTest {
 
@@ -45,80 +42,11 @@ public class TeamTest {
     }
 
 
-//    @Test
-//    public void AllTeamsAreReturnedCorrectly_true() throws Exception {
-//        Team team = setUpNewTeam();
-//        assertEquals(1, Team.getTeamInstances().size());
-//
-//    }
-
-
     @Test
     public void getCreatedAt_instantiatesWithCurrentTime_today() throws Exception{
         Team team = setUpNewTeam();
         assertEquals(LocalDateTime.now().getDayOfWeek(), team.getCreatedAt().getDayOfWeek());
     }
-
-//    @Test
-//    public void getId_teamsInstantiateWithAnID_1() throws Exception{
-//        Team team = setUpNewTeam();
-//        assertEquals(1, team.getId());
-//    }
-
-//    @Test
-//    public void findReturnsCorrectTeam_1() throws Exception {
-//        Team team = setUpNewTeam();
-//        assertEquals(1, Team.findById(team.getId()).getId());
-//    }
-
-//    @Test
-//    public void findReturnsCorrectTeamWhenMoreThanOneTeamExists_2() throws Exception {
-//        Team team = setUpNewTeam();
-//        Team otherTeam = new Team("Java", "web application by spark");
-//        assertEquals(2, Team.findById(otherTeam.getId()).getId());
-//    }
-
-
-//    @Test
-//    public void addTeamMembers_addTeamMembers_1() throws Exception {
-//        Team team = setUpNewTeam();
-//        team.addTeamMember("semhar issac");
-//        assertEquals(1, team.getTeamMembers().size());
-//    }
-
-//    @Test
-//    public void updateChangesInTeamContent() throws Exception {
-//        Team team = setUpNewTeam();
-//        String formerName = team.getName();
-//        String formerDescription = team.getDescription();
-//        LocalDateTime formerDate = team.getCreatedAt();
-//        int formerId = team.getId();
-//
-//        team.update("react class","Epicodus students");
-//
-//        assertEquals(formerId, team.getId());
-//        assertEquals(formerDate, team.getCreatedAt());
-//        assertNotEquals(formerName, team.getName());
-//        assertNotEquals(formerDescription, team.getDescription());
-//    }
-
-//    @Test
-//    public void deleteDeletesASpecificTeam() throws Exception {
-//        Team team = setUpNewTeam();
-//        Team otherTeam = new Team("Java", "js stream");
-//        team.deleteTeam();
-//        assertEquals(1, Team.getTeamInstances().size());
-//        assertEquals(Team.getTeamInstances().get(0).getId(), 2);
-//    }
-
-//    @Test
-//    public void deleteAllTeamsDeletsAllTeams() throws Exception {
-//        Team team = setUpNewTeam();
-//        Team otherTeam = setUpNewTeam();
-//        Team.clearAllTeams();
-//        assertEquals(0, Team.getTeamInstances().size());
-//
-//    }
 
     private Team setUpNewTeam() {
         return new Team("Team: JS", "JS students of epicodus");

@@ -109,9 +109,7 @@ public class App {
             int teamId = Integer.parseInt(req.params("teamId"));
             int memberId = Integer.parseInt(req.params("memberId"));
             String member = req.queryParams("member");
-            //String newMember2 = req.queryParams("member2");
             memberDao.update(memberId, member, teamId);
-            //memberDao.update(memberId, newMember2, teamId);
             res.redirect("/teams/" + teamId );
             return null;
         }, new HandlebarsTemplateEngine());

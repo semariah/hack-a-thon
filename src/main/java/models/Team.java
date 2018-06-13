@@ -53,7 +53,6 @@ public class Team {
 
     }
 
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -69,7 +68,5 @@ public class Team {
 
         return Objects.hash(name, description, id);
     }
-
-
 
 }
