@@ -4,9 +4,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.time.LocalDateTime;
-
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 public class TeamTest {
 
@@ -43,9 +41,10 @@ public class TeamTest {
 
 
     @Test
-    public void getCreatedAt_instantiatesWithCurrentTime_today() throws Exception{
+    public void getId_returnsId_1() throws Exception{
         Team team = setUpNewTeam();
-        assertEquals(LocalDateTime.now().getDayOfWeek(), team.getCreatedAt().getDayOfWeek());
+        team.setId(1);
+        assertNotEquals(1, team.getId());
     }
 
     private Team setUpNewTeam() {
