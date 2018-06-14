@@ -64,7 +64,9 @@ public class Sql2oTeamDaoTest {
     @Test
     public void getAllMembersByTeamReturnsMembersCorrectly() throws Exception {
         Team team = setupNewTeam();
+        Team otherteam = setupNewTeam();
         teamDao.add(team);
+        teamDao.add(otherteam);
         int teamId = team.getId();
         Member newMember = new Member("aabiel", teamId);
         Member otherMember = new Member("saara", teamId);
@@ -73,6 +75,7 @@ public class Sql2oTeamDaoTest {
         assertEquals(2, teamDao.getAllMembersByTeamId(teamId).size());
         assertTrue(teamDao.getAllMembersByTeamId(teamId).contains(newMember));
         assertTrue(teamDao.getAllMembersByTeamId(teamId).contains(otherMember));
+        assertEquals(0, teamDao.getAllMembersByTeamId(teamId).size());
 
     }
 

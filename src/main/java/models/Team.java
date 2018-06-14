@@ -1,12 +1,10 @@
 package models;
 
-import java.time.LocalDateTime;
 import java.util.Objects;
 
 public class Team {
     private String name;
     private String description;
-    private LocalDateTime createdAt;
     private int id;
 
 
@@ -14,7 +12,6 @@ public class Team {
     public Team(String name, String description){
         this.name = name;
         this.description = description;
-        this.createdAt = LocalDateTime.now();
     }
 
 
@@ -48,10 +45,6 @@ public class Team {
 
     }
 
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
-
-    }
 
     @Override
     public boolean equals(Object o) {
