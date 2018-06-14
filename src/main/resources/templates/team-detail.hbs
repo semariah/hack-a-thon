@@ -11,6 +11,7 @@
             </ul>
 
             <a href="/teams/{{teamId}}/members/{{id}}/update"><button class="btn btn-info">Update Member</button></a>
+
             <a href="/teams/{{teamId}}/members/{{id}}/delete"><button class="btn btn-danger">Delete Member</button></a>
 
         {{/each}}
@@ -19,8 +20,8 @@
     <form action="/teams/{{team.id}}/members/add" method="post">
         <div>
             <label for="members">Add Team members</label>
-            <input id="member1" name="member1" type="text">
-            <input id="member2" name="member2" type="text">
+            <input id="member1" name="member1" type="text" value="{{member1.name}}">
+            <input id="member2" name="member2" type="text" value="{{member2.name}}">
         </div>
         <br>
         <button type="submit" class="btn btn-danger">Add Member</button>

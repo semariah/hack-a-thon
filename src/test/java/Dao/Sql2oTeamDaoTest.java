@@ -75,7 +75,7 @@ public class Sql2oTeamDaoTest {
         assertEquals(2, teamDao.getAllMembersByTeamId(teamId).size());
         assertTrue(teamDao.getAllMembersByTeamId(teamId).contains(newMember));
         assertTrue(teamDao.getAllMembersByTeamId(teamId).contains(otherMember));
-        assertEquals(0, teamDao.getAllMembersByTeamId(teamId).size());
+        assertNotEquals(0, teamDao.getAllMembersByTeamId(teamId).size());
 
     }
 

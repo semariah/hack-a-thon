@@ -43,6 +43,7 @@ public class App {
             int idOfTeamToDelete = Integer.parseInt(req.params("id"));
             teamDao.deleteById(idOfTeamToDelete);
             res.redirect("/");
+            halt();
             return null;
         }, new HandlebarsTemplateEngine());
 
@@ -72,6 +73,7 @@ public class App {
             memberDao.add(member);
             memberDao.add(otherMember);
             res.redirect("/teams/" + memberTeamId);
+            halt();
             return null;
         }, new HandlebarsTemplateEngine());
 
@@ -92,6 +94,7 @@ public class App {
             Map<String, Object> model = new HashMap<>();
             memberDao.clearAllMembers();
             res.redirect("/");
+            halt();
             return null;
         }, new HandlebarsTemplateEngine());
 
@@ -101,6 +104,7 @@ public class App {
             int memberId = Integer.parseInt(request.params("id"));
             memberDao.deleteById(memberId);
             response.redirect("/teams/" + teamId);
+            halt();
             return null;
         }, new HandlebarsTemplateEngine());
 
@@ -111,6 +115,7 @@ public class App {
             String member = req.queryParams("member");
             memberDao.update(memberId, member, teamId);
             res.redirect("/teams/" + teamId );
+            halt();
             return null;
         }, new HandlebarsTemplateEngine());
 
@@ -131,6 +136,7 @@ public class App {
             int idOfTeamToEdit = Integer.parseInt(req.params("id"));
             teamDao.update(idOfTeamToEdit, newName, newDescription);
             res.redirect("/");
+            halt();
             return null;
         }, new HandlebarsTemplateEngine());
 
