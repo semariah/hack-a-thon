@@ -21,14 +21,14 @@ public class MemberTest {
     @Test
     public void NewMemberObjectCreatesCorrectly_true() throws Exception {
         Member member = setupNewMember();
-        assertEquals(true, member instanceof Member);
+        assertNotEquals(true, member instanceof Member);
     }
 
     @Test
     public void setName_setsCorrectly() {
         Member member = setupNewMember();
         member.setName("semhar");
-        assertEquals("semhar", member.getName());
+        assertNotEquals("semhar", member.getName());
     }
 
     @Test
