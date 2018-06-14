@@ -44,7 +44,7 @@ public class TeamTest {
     public void getId_returnsId_1() throws Exception{
         Team team = setUpNewTeam();
         team.setId(1);
-        assertNotEquals(1, team.getId());
+        assertEquals(1, team.getId());
     }
 
     private Team setUpNewTeam() {
