@@ -64,9 +64,9 @@ public class Sql2oTeamDaoTest {
     @Test
     public void getAllMembersByTeamReturnsMembersCorrectly() throws Exception {
         Team team = setupNewTeam();
-        Team otherteam = setupNewTeam();
+        Team otherTeam = setupNewTeam();
         teamDao.add(team);
-        teamDao.add(otherteam);
+        teamDao.add(otherTeam);
         int teamId = team.getId();
         Member newMember = new Member("aabiel", teamId);
         Member otherMember = new Member("saara", teamId);

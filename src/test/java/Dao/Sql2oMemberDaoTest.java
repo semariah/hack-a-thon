@@ -24,7 +24,6 @@ public class Sql2oMemberDaoTest {
         String connectionString = "jdbc:h2:mem:testing;INIT=RUNSCRIPT from 'classpath:db/create.sql'";
         Sql2o sql2o = new Sql2o(connectionString, "", "");
         memberDao = new Sql2oMemberDao(sql2o);
-        memberDao = new Sql2oMemberDao(sql2o);
         conn = (org.sql2o.Connection) sql2o.open();
     }
 
